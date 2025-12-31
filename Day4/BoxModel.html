@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>css BOX Model</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            border: 0;
+        }
+        .Box {
+            text-align:center;
+            font-size: larger;
+            font-weight: bolder;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        }
+        .Box1 {
+            background-color: lightgreen;
+            margin: 35px;
+            border: 20px solid blue;
+            padding: 10px;
+            height: 200px;
+            box-sizing: border-box;
+        }
+        .Box2 {
+            background-color: lightpink;
+            margin: 25px;
+            border: 20px solid blue;
+            padding: 10px;
+            height: 200px;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+<body>
+    <head>
+        <h1 style="text-align: center; font-family: fantasy;">CSS Box Model</h1>
+    </head>
+    <main>
+        <h3 style="font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">Box model testing</h3>
+        <p class="Box Box1">
+            Box 1 testing
+        </p>
+        <p class="Box Box2">
+            Box 2 testing
+        </p>
+    </main>
+</body>
+</html>

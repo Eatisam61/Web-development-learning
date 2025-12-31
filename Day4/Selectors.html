@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Selectors</title>
+    <style>
+        p {
+            background-color: rgb(224, 196, 196);
+        }
+        p:first-child {
+            background-color: green;
+        }
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .one  {
+            color: aquamarine;
+        }
+        
+        #one {
+            color: brown;
+        }
+        #two {
+            text-align: center;
+        }
+        main  div {
+            background-color: rgb(102, 235, 235);
+        }
+        a:visited {color: brown;}
+        a:link {color: pink;}
+        a:active {color: rgb(0, 0, 0);}
+        a:hover {color: rgb(255, 0, 0);}
+    </style>
+</head>
+<body>
+    <h1 style="color: darkgoldenrod; text-align: center;">I know its a bit messy but this is practice</h1>
+    <main>
+        <p>
+            Use all types of selectors
+        </p>
+        <p>
+            Second selector
+        </p>
+        <article> 
+            <div class="one">
+                <p>Color Check</p>
+                <h3>
+                    Hi i am Eatisam
+                </h3>
+                <h2 >
+                    I am also Eatisam
+                </h2>
+                <p>I am just a paragraph bro</p>
+            </div>
+        </article>
+    </main>
+    <div>
+        <p id="one">
+            paragraph
+        </p>
+        <p id="two">
+            Another paragraph
+        </p>
+    </div>
+    <main>
+        <div>
+            Hi I am yes
+        </div>
+    <a href="https://www.google.com" target="_blank">Go to google</a>
+    <a href="https://www.facebook.com" target="_blank">Go to facebook</a>
+    </main>
+</body>
+</html>
