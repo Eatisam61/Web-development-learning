@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Specificity</title>
+    <style>
+        h1 {
+            color: red;
+        }
+        .yellow {
+            color: yellow ;
+        }
+        #hello {
+            color: lightpink;
+        }
+        .purple {
+            color: purple;
+        }
+        h1.yellow[txt="hi"] {
+            color: aqua;
+        }
+        .green {
+            color: green;
+        }
+        .blue {
+            color: blue;
+        }
+        [txt="hi"] {
+            color:darkmagenta;
+        }
+
+    </style>
+</head>
+<body>
+    <h1 style="color: grey;" id="hello" class="yellow purple blue green" txt="hi">
+         Hi i am a testing paragraph
+    </h1>
+</body>
+</html>
