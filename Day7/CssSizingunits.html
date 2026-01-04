@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sizing Units</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            color: rgb(0, 0, 0);
+        }
+
+        .box {
+            border: solid red;
+            width: 80vw;
+            margin: 20px auto;
+            height: 10vh;
+            text-align: center;
+            font-size: 18px;
+        }
+
+        .box {
+            font-size: 2em;
+        }
+
+        .container {
+            box-sizing: border-box;
+            border: solid red;
+            width: 80vw;
+            margin: 20px auto;
+            min-height: 75vh;
+            padding: 10px;
+        }
+
+        .footnote {
+            border: solid red;
+            width: 80vw;
+            margin: 20px auto;
+            height: 5vh;
+        }
+        .container > div {
+            width: 50%;
+            border: solid black;
+        }
+        .container>div>div {
+            width: 50%;
+            border: solid blue;
+        }
+        .container>div>div>div {
+            width: 50%;
+            border: solid rgb(12, 180, 15);
+            word-break: break-all;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <div>
+            This is a box
+        </div>
+    </div>
+    <div class="container">
+        <div>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Numquam iste iure doloremque nihil repellendus
+            impedit ab consequuntur, eum, itaque esse officia natus rem possimus sit ipsum! Rem a saepe velit culpa
+            laboriosam inventore. Cumque consequatur harum aut quibusdam veritatis dolore ratione mollitia. Amet
+            necessitatibus neque ea modi alias repellat sequi laborum culpa. Qui odit sequi molestiae. 
+        <div>I am another div <div>Another one babebabebebabebabbebabebabebeabeabeeabbeadjbaejhdfbhjasjdhfgaFjdkav</div></div>
+        </div>
+    </div>
+    <div class="footnote">
+        <p>
+            This is just a footnote
+        </p>
+    </div>
+</body>
+
+</html>
