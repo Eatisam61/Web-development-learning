@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NavBar and Grid only</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        img {
+            vertical-align: middle;
+        }
+
+        header {
+            position: sticky;
+            z-index: 100;
+            padding-top: 15px;
+        }
+        body {
+            background-color: white;
+            overflow-x: hidden; 
+        }
+
+        nav {
+            width: 95%;
+            max-width: 1200px;
+            min-height: 75px;
+            background-color: #f9f5f5;
+            border: 1px solid #00000024;
+            margin: 0 auto 18px auto;
+            border-radius: 5px;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            padding: 10px 20px;
+        }
+         main {
+            width: 95%;
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center; 
+        }
+
+        .nav-links img {
+            height: 15px;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 15px;
+            align-content: center;
+        }
+        .nav-links li {
+            font-size: 14px;
+            cursor: pointer;
+            white-space: nowrap;
+        }
+        .btn-download {
+            background-color: rgb(255, 215, 65);
+            padding: 10px 25px;
+            border-radius: 5px;
+            font-size: 14px;
+            font-weight: bold;
+            text-decoration: none;
+            color: black;
+            white-space: nowrap;
+        }
+        .lang-select {
+            display: flex;
+            align-items: center;
+            font-size: 14px;
+            gap: 5px;
+            cursor: pointer;
+        }
+
+        .nav-actions {
+            display:flex;
+            align-items: center;
+            gap: 20px;
+            padding-right: 20px;
+
+        }
+        .logo img{
+            height: 55px;
+            display: block;
+        }
+        .grid-container{
+            display: grid;
+            grid-template-columns: repeat(3,1fr);
+            gap: 35px;
+            margin-top: 80px;
+            margin-bottom: 80px;
+        }
+        .download-box {
+            background-color: rgba(211, 211, 211, 0.293);
+            border-radius: 10px;
+            padding: 30px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+
+        }
+        .box-lang { font-weight: bold; font-size: 18px; }
+        .box-desc { font-weight: bold; }
+        .box-btn {
+            background-color: rgb(255, 215, 65);
+            padding: 10px 0;
+            width: 170px;
+            border-radius: 7px;
+            font-size: 14px;
+            font-weight: bold;
+            cursor: pointer;
+
+        }
+        .box-hash { font-size: 10px; word-break: break-all; text-align: center; color: #555; }
+
+
+        @media (max-width:768px){
+            nav { justify-content: center; height: auto; padding-bottom: 20px; }
+            .nav-links { flex-wrap: wrap; justify-content: center; margin: 15px 0; }
+            .nav-actions { width: 100%; justify-content: center; }
+            .logo { margin-right: 20px;}
+
+
+            .grid-container{
+                grid-template-columns: 1fr;
+            }
+            main{
+                width: 75%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <img  src="https://www.ultraedit.com/wp-content/uploads/2023/01/UE_Site-Logo.png" alt="">
+            </div>
+            <ul class="nav-links">
+                <li>Products <img src="https://cdn-icons-png.flaticon.com/128/2985/2985150.png" alt=""></li>
+                <li>Buy</li>
+                <li>Support <img src="https://cdn-icons-png.flaticon.com/128/2985/2985150.png" alt=""></li>
+                <li>Learn <img src="https://cdn-icons-png.flaticon.com/128/2985/2985150.png" alt=""></li>
+                <li>Company <img src="https://cdn-icons-png.flaticon.com/128/2985/2985150.png" alt=""></li>
+            </ul>
+            <div class="nav-actions">
+                <a href="#" class="btn-download">Download</a>
+                <div class="lang-select">
+                    <img height="16px" src="https://cdn-icons-png.flaticon.com/128/2889/2889312.png" alt="">
+                    <span>English</span>
+                </div>
+                <img height="15px" src="https://cdn-icons-png.flaticon.com/128/54/54481.png" alt="">
+            </div>
+        </nav>
+        <main>
+            <div class="grid-container">
+                <div class="download-box">
+                    <p class="box-lang">English</p>
+                    <p class="box-desc">Includes all languages</p>
+                    <div class="box-btn">Download 64-bit</div>
+                    <p class="box-desc" style="font-size: 12px;">SHA256</p>
+                    <p class="box-hash">8229104849BF308E90B9EA3D5A0D00F26BC69BCE624919F9D0D149C34E578397</p>
+                </div>
+                <div class="download-box">
+                    <p class="box-lang">English</p>
+                    <p class="box-desc">Includes all languages</p>
+                    <div class="box-btn">Download 64-bit</div>
+                    <p class="box-desc" style="font-size: 12px;">SHA256</p>
+                    <p class="box-hash">8229104849BF308E90B9EA3D5A0D00F26BC69BCE624919F9D0D149C34E578397</p>
+                </div>
+                <div class="download-box">
+                    <p class="box-lang">English</p>
+                    <p class="box-desc">Includes all languages</p>
+                    <div class="box-btn">Download 64-bit</div>
+                    <p class="box-desc" style="font-size: 12px;">SHA256</p>
+                    <p class="box-hash">8229104849BF308E90B9EA3D5A0D00F26BC69BCE624919F9D0D149C34E578397</p>
+                </div>
+                <div class="download-box">
+                    <p class="box-lang">English</p>
+                    <p class="box-desc">Includes all languages</p>
+                    <div class="box-btn">Download 64-bit</div>
+                    <p class="box-desc" style="font-size: 12px;">SHA256</p>
+                    <p class="box-hash">8229104849BF308E90B9EA3D5A0D00F26BC69BCE624919F9D0D149C34E578397</p>
+                </div>
+                <div class="download-box">
+                    <p class="box-lang">English</p>
+                    <p class="box-desc">Includes all languages</p>
+                    <div class="box-btn">Download 64-bit</div>
+                    <p class="box-desc" style="font-size: 12px;">SHA256</p>
+                    <p class="box-hash">8229104849BF308E90B9EA3D5A0D00F26BC69BCE624919F9D0D149C34E578397</p>
+                </div>
+                <div class="download-box">
+                    <p class="box-lang">English</p>
+                    <p class="box-desc">Includes all languages</p>
+                    <div class="box-btn">Download 64-bit</div>
+                    <p class="box-desc" style="font-size: 12px;">SHA256</p>
+                    <p class="box-hash">8229104849BF308E90B9EA3D5A0D00F26BC69BCE624919F9D0D149C34E578397</p>
+                </div>
+                <div class="download-box">
+                    <p class="box-lang">English</p>
+                    <p class="box-desc">Includes all languages</p>
+                    <div class="box-btn">Download 64-bit</div>
+                    <p class="box-desc" style="font-size: 12px;">SHA256</p>
+                    <p class="box-hash">8229104849BF308E90B9EA3D5A0D00F26BC69BCE624919F9D0D149C34E578397</p>
+                </div>
+                <div class="download-box">
+                    <p class="box-lang">English</p>
+                    <p class="box-desc">Includes all languages</p>
+                    <div class="box-btn">Download 64-bit</div>
+                    <p class="box-desc" style="font-size: 12px;">SHA256</p>
+                    <p class="box-hash">8229104849BF308E90B9EA3D5A0D00F26BC69BCE624919F9D0D149C34E578397</p>
+                </div>
+                <div class="download-box">
+                    <p class="box-lang">English</p>
+                    <p class="box-desc">Includes all languages</p>
+                    <div class="box-btn">Download 64-bit</div>
+                    <p class="box-desc" style="font-size: 12px;">SHA256</p>
+                    <p class="box-hash">8229104849BF308E90B9EA3D5A0D00F26BC69BCE624919F9D0D149C34E578397</p>
+                </div>
+            </div>
+        </main>
+    </header>
+</body>
+
+</html>
