@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise 5</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            background-color: lightseagreen;
+        }
+        nav{
+            background-color: rgb(115, 205, 235);
+            position: sticky;
+            top: 0;
+            box-shadow: 0px 0px 16px 0px black;
+            z-index: 5;
+            font-size: 20px;
+        }
+        ul{
+            display: flex;
+        }
+        ul li a {
+            text-decoration: none;
+            color: white;
+        }
+        ul li {
+            list-style: none;
+            margin: 10px;
+            padding: 20px;
+            
+        }
+        .background {
+            height: 700px;
+            margin: 10px 30px;
+            background-color: rgb(109, 109, 222);
+        }
+        div:first-child{
+            height: 500px;
+            width: 500px;
+            position: relative;
+            top: 102px;
+            left: 159px;
+            background-color: blueviolet;
+            
+        }
+        div:nth-child(2){
+            height: 500px;
+            width: 500px;
+            position: relative;
+            top: 102px;
+            left: 299px;
+            background-color: rgb(30, 120, 210);
+        }
+        .background{
+            display: flex;
+            box-shadow: 0px 0px 16px 0px black;
+        }
+        .div {
+            box-shadow: 0px 0px 10px 0px black;
+        }
+        .course {
+            box-shadow: 0px 0px 20px 0px black;
+            margin: 120px;
+            height: 250px;
+            border-radius:80px ;
+            padding: 50px;
+            background-color: rgb(196, 246, 255);
+            margin-top: 50px;
+            margin-bottom: 300px;
+        }
+        .text{
+            font-size: 50px;
+            text-align: center;
+            position: relative;
+            top: 55px;
+            font-family:  Arial, sans-serif;
+            
+        }
+        img {
+            position: fixed;
+            margin-left: 1480px;
+            
+        }
+        footer{
+            height: 90px;
+            background-color: aqua;
+            text-align: center;
+            padding: 10px;
+            box-shadow: 0px 0px 20px 0px black;
+        }
+        
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/">About</a></li>
+            <li><a href="/">Contact</a></li>
+        </ul>
+    </nav>
+    <main class="background">
+        <div class="div"></div>
+        <div class="div"></div>
+    </main>
+    <div>
+        <img src="15618074.png" alt="" height="50">
+    </div>
+    <div class="course">
+        <p class="text">Welcome to this Sigma Website Development Express</p>
+    </div>
+    
+    <footer>
+        Eatisam's website | All rights reserved 2025-2026 &copy;
+    </footer>
+</body>
+</html>

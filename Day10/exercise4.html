@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multi color nav bar</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            background-color: var(--background-color);
+        }
+        :root{
+            --color: rgb(25, 102, 79);
+            --seccolor:rgb(244, 124, 244);
+            --thirdcolor:rgb(242, 2, 242);
+            --backcolor:rgb(90, 97, 223);
+            --pad:5px;
+            --mar:10px;
+            --background-color: rgb(46, 63, 195);
+        }
+        
+    nav{
+        background-color: var(--backcolor);
+    }
+    ul{
+        display: flex;
+    }
+    ul li {
+        list-style: none;
+        margin: var(--mar);
+        padding: var(--pad);
+        border-radius: 20px;
+        position: relative;
+        left: 1100px;
+        color: white;
+        font-size: larger;
+    }
+    
+    span {
+        margin: var(--mar);
+        padding: var(--pad);
+        border-radius: 20px;
+        position: relative;
+        top: 25px;
+        font-size: 20px;
+        left: 40px;
+        color: #ffffff;
+    }
+    ul li a {
+        text-decoration: none;
+        color: white;
+    }
+    </style>
+
+</head>
+<body>
+    <nav>
+        <span>Eatisam's Website</span>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/">About</a></li>
+            <li><a href="/">Contact</a></li>
+        </ul>
+    </nav>
+</body>
+</html>

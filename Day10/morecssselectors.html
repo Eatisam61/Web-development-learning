@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>More on CSS Selectors</title>
+    <style>
+        .box:nth-child(3)::first-letter {
+            color: red;
+        }
+        .boxes * {
+            border: 2px solid red;
+        }
+        .box[help="help"]{
+            background-color: yellow;
+        }
+        .box:nth-last-child(1){
+            color:rgb(255, 0, 0);
+        }
+        .boxes::before{
+            content: "Hi i am eatisam";
+            color: blue;
+        }
+        .boxes::after{
+            content: "i am also eatisam";
+        }
+        .box:first-child::selection{
+            color: aqua;
+            background-color: black;
+        }
+        .box:first-child::first-letter{
+            background-color: red;
+        }
+        input::placeholder{
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+    <div class="boxes">
+        <div class="box">Hi i am a box Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore porro reprehenderit molestias aspernatur, fugiat molestiae rerum iste nemo tenetur error repellendus ut saepe doloremque natus rem suscipit sint ipsa nulla esse illum aliquam! Fugiat atque iste praesentium veritatis delectus quisquam optio nihil dolorum, magnam perferendis?</div>
+        <div class="box">Hi i am also a box</div>
+        <div class="box" help="help">Hi this is the third box</div>
+        <input type="text" name="Hello" id="no" placeholder="type your name">
+    </div>
+</body>
+</html>
