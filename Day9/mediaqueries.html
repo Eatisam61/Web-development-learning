@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Media Queries</title>
+    <style>
+        body{
+            background-color: black;
+        }
+        @media only screen and (max-width: 655px){
+            body{
+                background-color: rgb(136, 0, 132);
+                
+            }
+            .boxes{
+                flex-direction: column;
+            }
+        }
+
+        p{
+            color: white;
+        }
+        .box{
+            height: 100px;
+            width: 100px;
+            background-color: steelblue;
+            margin: 2px;
+            border: 2px solid red;
+        }
+        .boxes {
+            display: flex;
+        }
+    </style>
+</head>
+<body>
+    <div class="boxes">
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+    </div>
+    <p>
+        Hi I am a paragraph
+    </p>
+</body>
+</html>

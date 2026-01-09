@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Variables</title>
+    <style>
+        :root{
+            /* --color:rgb(34, 147, 56) ; */
+            --seccolor:rgb(234, 234, 234);
+            --pad:25px;
+            --margin:20px;
+            --border: 2px solid black
+        
+        }
+        .div{
+            background-color: var(--color,blue);
+        }
+        .p {
+            background-color: var(--seccolor);
+        }
+        ul{
+            display: flex;
+        }
+        ul li {
+            
+            list-style: none;
+            padding: var(--pad);
+            margin: var(--margin);
+            border: var(--border);
+        }
+        .p2{
+            --color:rgb(212, 255, 0) ;
+            background-color: var(--color);
+        }
+        ul li:first-child{
+            --color:yellow;
+            background-color: var(--color);
+        }
+    </style>
+</head>
+<body>
+    <div class="div">
+        <ul>
+            <li>Home</li>
+            <li>About</li>
+            <li>Contact</li>
+        </ul>
+    </div>
+    <p class="p">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, libero voluptates provident quia natus quis fugiat ratione aut, sapiente vero facilis rem nisi?
+    </p>
+    <p class="p2" ">
+        hi ia ma joijdoa
+    </p>
+    <p style="background-color: var(--seccolor);">
+        lalalalalalalaal
+    </p>
+</body>
+</html>
