@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FlexBox NavBar</title>
+    <style>
+        .span1 {
+            position: relative;
+            left: 162px;
+            font-family: Arial, Helvetica, sans-serif;
+            padding: 10px 25px;
+            border-radius: 5px;
+            background-color: rgb(255, 215, 65);
+            font-size: 14px;
+            text-decoration: none;
+            color: black;
+        }
+
+        .span2 {
+            font-family: Arial, Helvetica, sans-serif;
+            position: relative;
+            left: 82px;
+            display: flex;
+            padding: 0px 5px;
+        }
+
+        .span2 img {
+            position: relative;
+            left: -5px;
+        }
+
+        .span3 img {
+            position: relative;
+            top: 3px;
+        }
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 5;
+        }
+
+        nav {
+            background-color: #f9f5f5;
+            border: 1px solid #00000024;
+            border-radius: 5px;
+            height: 75px;
+            width: 80vw;
+            margin: 18px auto;
+            display: flex;
+            gap: 20px;
+            justify-content: space-around;
+            align-items: center;
+            /* position: sticky;
+            top: 0px; */
+            box-shadow: 3px 8px 0 0 white;
+        }
+
+        ul {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+        }
+
+        ul li {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+        }
+
+        ul li img {
+            padding: 0px 5px;
+        }
+
+        .head {
+            font-family: Arial, Helvetica, sans-serif;
+            display: flex;
+            justify-content: center;
+            position: relative;
+            top: 48px;
+            font-size: 50px;
+            font-weight: lighter;
+        }
+
+        .head img {
+            position: relative;
+            top: 4px;
+            left: 15px;
+        }
+
+        .para h3 {
+            font-weight: 300;
+            font-size: 18px;
+            color: grey !important;
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 100px auto;
+            text-align: center;
+        }
+
+        .p1 {
+            display: flex;
+            justify-content: center;
+            background-color: rgb(255, 215, 65);
+            margin: 2px auto;
+            width: 20vw;
+            border-radius: 8px;
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: lighter;
+            padding: 16px;
+            position: relative;
+            top: -57px;
+        }
+
+        .p1 img {
+            position: relative;
+            top: -2px;
+            padding: 5px;
+        }
+
+        .version {
+            display: flex;
+            justify-content: center;
+            align-items: baseline;
+            font-family: Arial, Helvetica, sans-serif;
+            color: gray;
+            position: relative;
+            top: -23px;
+        }
+
+        .down {
+            font-size: 25px;
+            padding: 0px 7px;
+        }
+
+        .version img {
+            position: relative;
+            left: -3px;
+            top: 16px;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            justify-items: center;
+            margin: 40px 190px;
+            gap: 35px;
+
+        }
+
+        .container .boxes {
+            height: 200px;
+            width: 400px;
+            background-color: rgba(211, 211, 211, 0.293);
+            gap: 10px;
+            border-radius: 10px;
+        }
+
+        .boxes p {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .num {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 8px;
+        }
+
+        .lang {
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .lang-info {
+            font-weight: bold;
+        }
+
+        .button {
+            height: 35px;
+            width: 170px;
+            border-radius: 7px;
+            background-color: rgb(255, 215, 65);
+            margin: 0px 113px;
+        }
+
+        .end {
+            width: 60vw;
+            margin: auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 40px;
+            position: relative;
+            top: 45px;
+
+        }
+
+        .end1,
+        .end2 {
+            padding: 20px;
+            height: 25vh;
+            width: 35vw;
+            display: flex;
+            align-content: center;
+            flex-direction: column;
+        }
+
+        .end2 {
+            border-radius: 7px;
+            background-color: #2e2e2e;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .end1 p {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 33px;
+            font-weight: bolder;
+        }
+
+        .end1 span {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 15px;
+            font-weight: lighter;
+            position: relative;
+            top: -21px;
+        }
+
+        .mail {
+            color: #00b6d1;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 25px;
+            position: relative;
+            top: 10px;
+
+        }
+
+        .enter {
+            color: white;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 18px;
+        }
+
+        .input {
+            padding: 5px 80px;
+        }
+
+        .sign {
+            background-color: rgb(255, 215, 65);
+            padding: 14px;
+            border-radius: 6px;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 14px;
+        }
+
+        .enter,
+        .input,
+        .sign {
+            position: relative;
+            top: -29px;
+        }
+
+        .last-content {
+            height: 40vh;
+            background-color: #f2f0ec;
+            margin-top: 125px;
+            display: flex;
+            justify-content: center;
+            gap: 80px;
+        }
+
+        .content_1,
+        .content_2 {
+            font-family: Arial, Helvetica, sans-serif;
+            width: 25vw;
+            position: relative;
+            top: 30px
+        }
+
+        .content_1 h3,
+        .content_2 h3 {
+            font-size: 30px;
+            font-weight: lighter;
+        }
+
+        .content_1 p,
+        .content_2 p {
+            font-size: 14px;
+            font-weight: lighter;
+            line-height: 20px;
+            position: relative;
+            top: -5px;
+        }
+
+        .foot {
+            width: 80vw;
+            min-height: 50vh;
+            background-color: #2e2e2e;
+            border-radius: 9px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+
+        }
+
+        footer {
+            background-color: #f2f0ec;
+            height: 65vh;
+        }
+
+        .col1 {
+            grid-column: 1/2;
+            margin-left: 35px;
+            font-family: Arial, Helvetica, sans-serif;
+            color: white;
+        }
+
+        .col1 img {
+            position: relative;
+            top: 32px;
+        }
+
+        .col1 h4 {
+            position: relative;
+            top: -170px;
+            font-size: 20px;
+            font-weight: lighter;
+        }
+
+        .col1 p {
+            position: relative;
+            top: -186px;
+            width: 20vw;
+            font-weight: lighter;
+            font-size: 14px;
+        }
+
+        .sp1 span {
+            position: relative;
+            top: -74px;
+        }
+
+        .sp2 span {
+            position: relative;
+            top: -68px;
+            font-size: smaller;
+            font-weight: lighter;
+            color: rgba(255, 255, 255, 0.603) !important;
+        }
+
+        .form {
+            display: flex;
+            position: relative;
+            top: -46px;
+
+        }
+
+        .form input {
+
+            flex: 1;
+            padding: 8px;
+            border: none;
+            border-radius: 4px;
+            background: rgba(59, 59, 59, 1);
+            color: #fff;
+            font-size: 14px;
+            outline: none;
+            width: 100%;
+        }
+
+        .form button {
+            background: #ffd741;
+            border: none;
+            padding: 6px 12px;
+            border-radius: 4px;
+            font-size: 14px;
+            letter-spacing: -0.32px;
+            cursor: pointer;
+            font-weight: 500;
+        }
+
+        form.form {
+            padding: 4px;
+            width: 270px;
+            background: rgba(59, 59, 59, 1);
+            border-radius: 4px;
+        }
+
+        .col2 {
+            grid-column: 2/3;
+            grid-row: 1/2;
+
+        }
+
+        .col3 {
+            grid-column: 3/4;
+            grid-row: 1/2;
+            justify-content: flex-start;
+        }
+
+        .col4 {
+            grid-column: 4/5;
+            grid-row: 1/2;
+        }
+
+        .col5 {
+            grid-column: 5/6;
+            grid-row: 1/2;
+        }
+
+        .col2 p,
+        .col3 p,
+        .col4 p,
+        .col5 p {
+            color: rgba(255, 255, 255, 0.63);
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 14px;
+            padding-right: 50px;
+        }
+
+        .col2 h3,
+        .col3 h3,
+        .col4 h3,
+        .col5 h3 {
+            color: white;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 18px;
+            font-weight: lighter;
+        }
+
+        .col2,
+        .col3,
+        .col4,
+        .col5 {
+            padding-top: 20px;
+        }
+
+        .copy-right {
+            grid-row: 4/5;
+            grid-column: 4/6;
+            color: rgba(255, 255, 255, 0.63);
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 14px;
+            margin-left: 165px;
+        }
+
+        ul li:hover {
+            cursor: pointer;
+        }
+
+        
+        
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="logo"><img height="55px"
+                    src="https://www.ultraedit.com/wp-content/uploads/2023/01/UE_Site-Logo.png" alt=""></div>
+            <ul>
+                <li>Products <img height="12px" src="https://cdn-icons-png.flaticon.com/128/2985/2985150.png" alt="">
+                </li>
+                <li>Buy</li>
+                <li>Support <img height="12px" src="https://cdn-icons-png.flaticon.com/128/2985/2985150.png" alt="">
+                </li>
+                <li>Learn <img height="12px" src="https://cdn-icons-png.flaticon.com/128/2985/2985150.png" alt=""></li>
+                <li>Company <img height="12px" src="https://cdn-icons-png.flaticon.com/128/2985/2985150.png" alt="">
+                </li>
+            </ul>
+            <a class="span1" href="UltraEdit.dmg">Download</a>
+            <span class="span2"><img height="16px" src="https://cdn-icons-png.flaticon.com/128/2889/2889312.png" alt="">
+                English</span>
+            <span class="span3"><img height="15px" src="https://cdn-icons-png.flaticon.com/128/54/54481.png" alt=""
+                    class="logo"></span>
+        </nav>
+    </header>
+    <main>
+        <h1 class="head">Download UltraEdit for Windows <img height="50"
+                src="https://cdn-icons-png.flaticon.com/128/3494/3494371.png" alt=""></h1>
+        <div class="para">
+            <h3>Download and try UltraEdit before you buy it! This download includes the full Windows version of the
+                text editor.</h3>
+        </div>
+        <span class="p1"><img height="13px" src="https://cdn-icons-png.flaticon.com/128/731/731985.png" alt=""> <img
+                height="13px" src="https://cdn-icons-png.flaticon.com/128/25/25719.png" alt="">Download Mac or Linux
+            Version <img height="13px" src="https://cdn-icons-png.flaticon.com/128/271/271226.png" alt=""></span>
+        <div class="version">
+            <img height="50" src="https://www.unixmen.com/wp-content/uploads/2016/05/UltraEdit-logo.png" alt="">
+            <span class="down">Download UltraEdit</span>
+            <span>v2025.1 (released 2025-12-11) | Latest changes </span>
+        </div>
+        <div class="container">
+            <div class="boxes">
+                <p class="lang">English</p>
+                <p class="lang-info">Includes all languges</p>
+                <p class="button">Download 64-bit</p>
+                <p class="dk">SHA256</p>
+                <p class="num">8229104849BF308E90B9EA3D5A0D00F26BC69BCE624919F9D0D149C34E578397</p>
+            </div>
+            <div class="boxes">
+                <p class="lang">Deutsch</p>
+                <p class="lang-info">German</p>
+                <p class="button">Download 64-bit</p>
+                <p class="dk">SHA256</p>
+                <p class="num">8229104849BF308E90B9EA3D5A0D00F26BC69BCE624919F9D0D149C34E578397</p>
+            </div>
+            <div class="boxes">
+                <p class="lang">Italiano</p>
+                <p class="lang-info">Italian</p>
+                <p class="button">Download 64-bit</p>
+                <p class="dk">SHA256</p>
+                <p class="num">8229104849BF308E90B9EA3D5A0D00F26BC69BCE624919F9D0D149C34E578397</p>
+            </div>
+            <div class="boxes">
+                <p class="lang">Español</p>
+                <p class="lang-info">Spanish</p>
+                <p class="button">Download 64-bit</p>
+                <p class="dk">SHA256</p>
+                <p class="num">8229104849BF308E90B9EA3D5A0D00F26BC69BCE624919F9D0D149C34E578397</p>
+            </div>
+            <div class="boxes">
+                <p class="lang">français</p>
+                <p class="lang-info">French</p>
+                <p class="button">Download 64-bit</p>
+                <p class="dk">SHA256</p>
+                <p class="num">8229104849BF308E90B9EA3D5A0D00F26BC69BCE624919F9D0D149C34E578397</p>
+            </div>
+            <div class="boxes">
+                <p class="lang">Português brasileiro</p>
+                <p class="lang-info">Brazilian Portuguese</p>
+                <p class="button">Download 64-bit</p>
+                <p class="dk">SHA256</p>
+                <p class="num">8229104849BF308E90B9EA3D5A0D00F26BC69BCE624919F9D0D149C34E578397</p>
+            </div>
+            <div class="boxes">
+                <p class="lang">日本</p>
+                <p class="lang-info">Japanese</p>
+                <p class="button">Download 64-bit</p>
+                <p class="dk">SHA256</p>
+                <p class="num">8229104849BF308E90B9EA3D5A0D00F26BC69BCE624919F9D0D149C34E578397</p>
+            </div>
+            <div class="boxes">
+                <p class="lang">한국어</p>
+                <p class="lang-info">Korean</p>
+                <p class="button">Download 64-bit</p>
+                <p class="dk">SHA256</p>
+                <p class="num">8229104849BF308E90B9EA3D5A0D00F26BC69BCE624919F9D0D149C34E578397</p>
+            </div>
+            <div class="boxes">
+                <p class="lang">华语</p>
+                <p class="lang-info">Chinese</p>
+                <p class="button">Download 64-bit</p>
+                <p class="dk">SHA256</p>
+                <p class="num">8229104849BF308E90B9EA3D5A0D00F26BC69BCE624919F9D0D149C34E578397</p>
+            </div>
+            <div class="boxes">
+                <p class="lang">華語</p>
+                <p class="lang-info">Traditional Chinese</p>
+                <p class="button">Download 64-bit</p>
+                <p class="dk">SHA256</p>
+                <p class="num">8229104849BF308E90B9EA3D5A0D00F26BC69BCE624919F9D0D149C34E578397</p>
+            </div>
+        </div>
+        <div class="end">
+            <div class="end1">
+                <p>Join the UltraEdit newsletter</p><span>Sign up for our newsletter and receive emails for the latest
+                    news, blogs, and special deals on UltraEdit.</span>
+            </div>
+            <div class="end2">
+                <p class="mail">Subscribe to our Emails</p>
+                <p class="enter">Enter email address</p>
+                <input class="input" type="email" required>
+                <p class="sign">SIGN UP</p>
+            </div>
+        </div>
+    </main>
+    <div class="last-content">
+        <div class="content_1">
+            <h3>EXE or MSI?</h3>
+            <p>The EXE builds of our products are the preferred download for most of our users, running Windows 10 and
+                later.<br>
+                We make MSI builds available for bulk or silent deployments (command line, GPO, SCCM, etc.). Get the
+                UltraEdit MSI installer.</p>
+        </div>
+        <div class="content_2">
+            <h3>Free trial period</h3>
+            <p>
+                This application comes with a free, fully functional 7 day trial period. After the trial period expires,
+                you must purchase a license to continue using it.
+            </p>
+        </div>
+
+    </div>
+    <footer>
+        <div class="foot">
+            <div class="col1"><img height="50px" src="ultraedit-seeklogo.png" alt=""></div>
+            <div class="col1">
+                <h4>UltraEdit</h4>
+            </div>
+            <div class="col1">
+                <p>UltraEdit is the powerful text editor built for developers, data wranglers, and IT pros handling
+                    large files and complex tasks.</p>
+            </div>
+            <div class="col1 sp1"><span>Newsletter Signup</span></div>
+            <div class="col1 sp2"><span>Stay updated on new features, tutorials, and exclusive offers.</span></div>
+            <div class="col1">
+                <form class="form" action="post">
+                    <input type="email" name="email1" id="email1" placeholder="email@gmail.com">
+                    <button>Subscribe</button>
+                </form>
+            </div>
+            <div class="col2">
+                <h3>Company</h3>
+                <p>About Us</p>
+                <p>Contact Us</p>
+            </div>
+            <div class="col3">
+                <h3>Products</h3>
+                <p>UltraEdit (Windows / Mac / Linux)</p>
+                <p>UltraCompare</p>
+                <p>UltraFTP</p>
+                <p>UEStudio</p>
+                <p>All Products</p>
+            </div>
+            <div class="col4">
+                <h3>Support</h3>
+                <p>Help Center</p>
+                <p>Licensing & Activation</p>
+                <p>File a Support Ticket</p>
+                <p>Documentation</p>
+                <p>Community Forums</p>
+            </div>
+            <div class="col5">
+                <h3>Legal</h3>
+                <p>Privacy Policy</p>
+                <p>Refund Policy</p>
+                <p>License Agreement</p>
+            </div>
+            <div class="copy-right">© Copyright 2025, All Rights Reserved</div>
+        </div>
+    </footer>
+</body>
+
+</html>

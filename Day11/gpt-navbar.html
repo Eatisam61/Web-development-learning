@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FlexBox NavBar - Responsive</title>
+    <style>
+        /* --- GLOBAL RESET --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box; /* This is crucial for responsive layouts */
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            background-color: white;
+            overflow-x: hidden; /* Prevents horizontal scrollbars */
+        }
+
+        img {
+            vertical-align: middle; /* Aligns icons with text better */
+        }
+
+        /* --- HEADER & NAV --- */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background-color: #fff; /* White bg behind sticky header */
+            padding-top: 10px;
+        }
+
+        nav {
+            background-color: #f9f5f5;
+            border: 1px solid #00000024;
+            border-radius: 5px;
+            /* Responsive Width Logic */
+            width: 95%;
+            max-width: 1200px; /* Stops it from getting too wide on huge screens */
+            margin: 0 auto 18px auto; /* Centered */
+            min-height: 75px;
+            
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            flex-wrap: wrap; /* Allows menu to fold on phones */
+            gap: 15px;
+        }
+
+        .logo img {
+            height: 55px;
+            display: block;
+        }
+
+        /* Navigation Links */
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+            align-items: center;
+        }
+
+        .nav-links li {
+            font-size: 14px;
+            cursor: pointer;
+            white-space: nowrap; /* Keeps text on one line */
+        }
+
+        .nav-links img {
+            height: 12px;
+            margin-left: 5px;
+        }
+
+        /* Right Side Actions */
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .btn-download {
+            background-color: rgb(255, 215, 65);
+            padding: 10px 25px;
+            border-radius: 5px;
+            font-size: 14px;
+            font-weight: bold;
+            text-decoration: none;
+            color: black;
+            white-space: nowrap;
+        }
+
+        .lang-select {
+            display: flex;
+            align-items: center;
+            font-size: 14px;
+            gap: 5px;
+            cursor: pointer;
+        }
+
+        /* --- HERO SECTION --- */
+        main {
+            width: 95%;
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center; /* Centers all text in main */
+        }
+
+        .hero-head {
+            font-size: 50px;
+            font-weight: lighter;
+            margin-top: 50px; /* Use margin, not top: 48px */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .hero-subtext {
+            font-weight: 300;
+            font-size: 18px;
+            color: grey;
+            margin: 30px auto 50px auto;
+            max-width: 800px;
+            line-height: 1.5;
+        }
+
+        /* The Yellow Warning Box */
+        .platform-warning {
+            display: inline-flex; /* Shrinks to fit content */
+            align-items: center;
+            justify-content: center;
+            background-color: rgb(255, 215, 65);
+            border-radius: 8px;
+            padding: 16px;
+            gap: 10px;
+            margin-bottom: 40px;
+        }
+
+        .version-info {
+            color: gray;
+            margin-bottom: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .version-info .big-text {
+            font-size: 25px;
+            color: black;
+        }
+
+        /* --- DOWNLOAD GRID --- */
+        .grid-container {
+            display: grid;
+            /* PRO TRICK: logical 3 columns */
+            grid-template-columns: repeat(3, 1fr); 
+            gap: 35px;
+            margin-bottom: 80px;
+        }
+
+        .download-box {
+            background-color: rgba(211, 211, 211, 0.293);
+            border-radius: 10px;
+            padding: 30px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .box-lang { font-weight: bold; font-size: 18px; }
+        .box-desc { font-weight: bold; }
+        .box-btn {
+            background-color: rgb(255, 215, 65);
+            padding: 10px 0;
+            width: 170px;
+            border-radius: 7px;
+            font-size: 14px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .box-hash { font-size: 10px; word-break: break-all; text-align: center; color: #555; }
+
+        /* --- NEWSLETTER SECTION --- */
+        .newsletter-section {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-bottom: 80px;
+            flex-wrap: wrap; /* Stacks on mobile */
+        }
+
+        .news-text, .news-form {
+            width: 45%;
+            min-width: 300px; /* Prevents getting too skinny */
+        }
+
+        .news-text h2 { font-size: 33px; margin-bottom: 10px; }
+        .news-text p { font-size: 15px; font-weight: lighter; }
+
+        .news-form {
+            background-color: #2e2e2e;
+            padding: 30px;
+            border-radius: 7px;
+            color: white;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .news-form input {
+            padding: 10px;
+            width: 80%;
+            border-radius: 4px;
+            border: none;
+        }
+
+        .btn-signup {
+            background-color: rgb(255, 215, 65);
+            padding: 10px 30px;
+            border-radius: 6px;
+            color: black;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        /* --- BOTTOM INFO --- */
+        .info-row {
+            background-color: #f2f0ec;
+            padding: 60px 0;
+            display: flex;
+            justify-content: center;
+            gap: 80px;
+            flex-wrap: wrap;
+        }
+
+        .info-col {
+            width: 400px;
+            max-width: 90%;
+            padding: 0 20px;
+        }
+        
+        .info-col h3 { font-size: 30px; font-weight: lighter; margin-bottom: 15px; }
+        .info-col p { font-size: 14px; line-height: 1.5; }
+
+        /* --- FOOTER --- */
+        footer {
+            background-color: #2e2e2e;
+            color: white;
+            padding: 50px 0;
+        }
+
+        .footer-grid {
+            width: 95%;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+            gap: 30px;
+        }
+
+        .footer-col h3 { font-size: 18px; margin-bottom: 20px; font-weight: lighter;}
+        .footer-col p { color: rgba(255, 255, 255, 0.63); font-size: 14px; margin-bottom: 10px; cursor: pointer; }
+        .footer-col h4 { font-size: 20px; margin: 10px 0; }
+        
+        .sub-form { display: flex; gap: 5px; margin-top: 15px; }
+        .sub-form input { padding: 8px; flex: 1; border-radius: 4px; border: none; background: #3b3b3b; color: white;}
+        .sub-form button { background: #ffd741; border: none; padding: 8px; border-radius: 4px; cursor: pointer;}
+
+        .copyright {
+            grid-column: 1 / -1; /* Spans full width */
+            text-align: center;
+            margin-top: 40px;
+            color: rgba(255, 255, 255, 0.63);
+            font-size: 14px;
+        }
+
+        /* --- MOBILE RESPONSIVENESS (MEDIA QUERIES) --- */
+        @media (max-width: 900px) {
+            .footer-grid {
+                grid-template-columns: 1fr 1fr; /* 2 columns on tablets */
+            }
+            .footer-col:first-child {
+                grid-column: 1 / -1; /* Logo section takes full width */
+            }
+        }
+
+        @media (max-width: 768px) {
+            /* 1. Navbar Stacking */
+            nav { justify-content: center; height: auto; padding-bottom: 20px; }
+            .nav-links { flex-wrap: wrap; justify-content: center; margin: 15px 0; }
+            .nav-actions { width: 100%; justify-content: center; }
+
+            /* 2. Hero Text */
+            .hero-head { font-size: 32px; }
+            
+            /* 3. Grid Stacking */
+            .grid-container {
+                grid-template-columns: 1fr; /* 1 Column */
+            }
+
+            /* 4. Footer Stacking */
+            .footer-grid {
+                grid-template-columns: 1fr; /* 1 Column */
+                text-align: center;
+            }
+            
+            .sub-form {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="https://www.ultraedit.com/wp-content/uploads/2023/01/UE_Site-Logo.png" alt="Logo">
+            </div>
+            <ul class="nav-links">
+                <li>Products <img src="https://cdn-icons-png.flaticon.com/128/2985/2985150.png" alt=""></li>
+                <li>Buy</li>
+                <li>Support <img src="https://cdn-icons-png.flaticon.com/128/2985/2985150.png" alt=""></li>
+                <li>Learn <img src="https://cdn-icons-png.flaticon.com/128/2985/2985150.png" alt=""></li>
+                <li>Company <img src="https://cdn-icons-png.flaticon.com/128/2985/2985150.png" alt=""></li>
+            </ul>
+            <div class="nav-actions">
+                <a href="#" class="btn-download">Download</a>
+                <div class="lang-select">
+                    <img height="16px" src="https://cdn-icons-png.flaticon.com/128/2889/2889312.png" alt="">
+                    <span>English</span>
+                </div>
+                <img height="15px" src="https://cdn-icons-png.flaticon.com/128/54/54481.png" alt="">
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <h1 class="hero-head">
+            Download UltraEdit for Windows 
+            <img height="50" src="https://cdn-icons-png.flaticon.com/128/3494/3494371.png" alt="">
+        </h1>
+        
+        <p class="hero-subtext">
+            Download and try UltraEdit before you buy it! This download includes the full Windows version of the text editor.
+        </p>
+        
+        <div class="platform-warning">
+            <img height="13px" src="https://cdn-icons-png.flaticon.com/128/731/731985.png" alt=""> 
+            <img height="13px" src="https://cdn-icons-png.flaticon.com/128/25/25719.png" alt="">
+            Download Mac or Linux Version 
+            <img height="13px" src="https://cdn-icons-png.flaticon.com/128/271/271226.png" alt="">
+        </div>
+
+        <div class="version-info">
+            <img height="50" src="https://www.unixmen.com/wp-content/uploads/2016/05/UltraEdit-logo.png" alt="">
+            <span class="big-text">Download UltraEdit</span>
+            <span>v2025.1 (released 2025-12-11) | Latest changes </span>
+        </div>
+
+        <div class="grid-container">
+            <div class="download-box">
+                <p class="box-lang">English</p>
+                <p class="box-desc">Includes all languages</p>
+                <div class="box-btn">Download 64-bit</div>
+                <p class="box-desc" style="font-size: 12px;">SHA256</p>
+                <p class="box-hash">8229104849BF308E90B9EA3D5A0D00F26BC69BCE624919F9D0D149C34E578397</p>
+            </div>
+            <div class="download-box">
+                <p class="box-lang">Deutsch</p>
+                <p class="box-desc">German</p>
+                <div class="box-btn">Download 64-bit</div>
+                <p class="box-desc" style="font-size: 12px;">SHA256</p>
+                <p class="box-hash">8229104849BF308E90B9EA3D5A0D00F26BC69BCE624919F9D0D149C34E578397</p>
+            </div>
+            <div class="download-box">
+                <p class="box-lang">Italiano</p>
+                <p class="box-desc">Italian</p>
+                <div class="box-btn">Download 64-bit</div>
+                <p class="box-desc" style="font-size: 12px;">SHA256</p>
+                <p class="box-hash">8229104849BF308E90B9EA3D5A0D00F26BC69BCE624919F9D0D149C34E578397</p>
+            </div>
+             <div class="download-box">
+                <p class="box-lang">Español</p>
+                <p class="box-desc">Spanish</p>
+                <div class="box-btn">Download 64-bit</div>
+                <p class="box-desc" style="font-size: 12px;">SHA256</p>
+                <p class="box-hash">8229104849BF308E90B9EA3D5A0D00F26BC69BCE624919F9D0D149C34E578397</p>
+            </div>
+            <div class="download-box">
+                <p class="box-lang">français</p>
+                <p class="box-desc">French</p>
+                <div class="box-btn">Download 64-bit</div>
+                <p class="box-desc" style="font-size: 12px;">SHA256</p>
+                <p class="box-hash">8229104849BF308E90B9EA3D5A0D00F26BC69BCE624919F9D0D149C34E578397</p>
+            </div>
+            <div class="download-box">
+                <p class="box-lang">Português</p>
+                <p class="box-desc">Brazilian Portuguese</p>
+                <div class="box-btn">Download 64-bit</div>
+                <p class="box-desc" style="font-size: 12px;">SHA256</p>
+                <p class="box-hash">8229104849BF308E90B9EA3D5A0D00F26BC69BCE624919F9D0D149C34E578397</p>
+            </div>
+        </div>
+
+        <div class="newsletter-section">
+            <div class="news-text">
+                <h2>Join the UltraEdit newsletter</h2>
+                <p>Sign up for our newsletter and receive emails for the latest news, blogs, and special deals on UltraEdit.</p>
+            </div>
+            <div class="news-form">
+                <p style="color:#00b6d1; font-size: 25px;">Subscribe to our Emails</p>
+                <p>Enter email address</p>
+                <input type="email" placeholder="you@example.com" required>
+                <div class="btn-signup">SIGN UP</div>
+            </div>
+        </div>
+    </main>
+
+    <div class="info-row">
+        <div class="info-col">
+            <h3>EXE or MSI?</h3>
+            <p>The EXE builds of our products are the preferred download for most of our users, running Windows 10 and later.<br><br>
+            We make MSI builds available for bulk or silent deployments (command line, GPO, SCCM, etc.). Get the UltraEdit MSI installer.</p>
+        </div>
+        <div class="info-col">
+            <h3>Free trial period</h3>
+            <p>This application comes with a free, fully functional 7 day trial period. After the trial period expires, you must purchase a license to continue using it.</p>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <img height="50px" src="ultraedit-seeklogo.png" alt="UE Logo">
+                <h4>UltraEdit</h4>
+                <p>UltraEdit is the powerful text editor built for developers, data wranglers, and IT pros handling large files and complex tasks.</p>
+                <br>
+                <span>Newsletter Signup</span><br>
+                <span style="font-size: 12px; color: gray;">Stay updated on new features, tutorials, and exclusive offers.</span>
+                <form class="sub-form">
+                    <input type="email" placeholder="email@gmail.com">
+                    <button>Subscribe</button>
+                </form>
+            </div>
+
+            <div class="footer-col">
+                <h3>Company</h3>
+                <p>About Us</p>
+                <p>Contact Us</p>
+            </div>
+
+            <div class="footer-col">
+                <h3>Products</h3>
+                <p>UltraEdit</p>
+                <p>UltraCompare</p>
+                <p>UltraFTP</p>
+                <p>UEStudio</p>
+                <p>All Products</p>
+            </div>
+
+            <div class="footer-col">
+                <h3>Support</h3>
+                <p>Help Center</p>
+                <p>Licensing</p>
+                <p>Support Ticket</p>
+                <p>Documentation</p>
+                <p>Forums</p>
+            </div>
+
+            <div class="footer-col">
+                <h3>Legal</h3>
+                <p>Privacy Policy</p>
+                <p>Refund Policy</p>
+                <p>License Agreement</p>
+            </div>
+
+            <div class="copyright">© Copyright 2025, All Rights Reserved</div>
+        </div>
+    </footer>
+
+</body>
+</html>
